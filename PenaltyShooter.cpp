@@ -46,15 +46,23 @@ class Partido {
 private:
     Jugador* equipoLocal;
     Portero* porteroVisitante;
+    int golesEquipoLocal;
 
 public:
     Partido(Jugador* equipoLocal, Portero* porteroVisitante)
-        : equipoLocal(equipoLocal), porteroVisitante(porteroVisitante) {}
+        : equipoLocal(equipoLocal), porteroVisitante(porteroVisitante), golesEquipoLocal(0) {}
 
     void ejecutarPenal() {
-        std::cout << "Turno de " << equipoLocal->getNombre() << ". ¿A qué lado quieres tirar? (izquierda/derecha/centro): ";
         std::string lado;
-        std::cin >> lado;
+        do {
+            std::cout << "Turno de " << equipoLocal->getNombre() << ". ¿A qué lado quieres tirar? (izquierda/derecha/centro): ";
+            std::cin >> lado;
+
+            // Comprobación de entrada
+            if (lado != "izquierda" && lado != "derecha" && lado != "centro") {
+                std::cout << "Entrada no válida. Por favor, ingresa 'izquierda', 'derecha' o 'centro'.\n";
+            }
+        } while (lado != "izquierda" && lado != "derecha" && lado != "centro");
 
         std::cout << equipoLocal->getNombre() << " va a tirar hacia " << lado << ".\n";
 
@@ -62,9 +70,15 @@ public:
             std::cout << "¡Atajó el portero " << porteroVisitante->getNombre() << "!\n";
         } else {
             std::cout << "¡Gol para " << equipoLocal->getNombre() << "!\n";
+            golesEquipoLocal++;  // Incrementar el contador de goles
         }
     }
+
+    int getGolesEquipoLocal() const {
+        return golesEquipoLocal;
+    }
 };
+
 
 int main() {
 
@@ -101,19 +115,11 @@ int main() {
         partido2->ejecutarPenal();
     }
 
-    // Contar goles del primer jugador
-    for (int i = 0; i < 5; ++i) {
-        if (!portero1->atajar()) {
-            golesJugador1++;
-        }
-    }
+    // Sumar los goles del primer jugador
+    golesJugador1 += partido1->getGolesEquipoLocal();
 
-    // Contar goles del segundo jugador
-    for (int i = 0; i < 5; ++i) {
-        if (!portero2->atajar()) {
-            golesJugador2++;
-        }
-    }
+    // Sumar los goles del segundo jugador
+    golesJugador2 += partido2->getGolesEquipoLocal();
 
 
     // Calcular y mostrar resultado final
