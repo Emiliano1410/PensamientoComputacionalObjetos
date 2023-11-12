@@ -67,14 +67,14 @@ public:
 };
 
 int main() {
-    // Configuración de semilla para números aleatorios
+
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     // Declarar variables para contar goles
     int golesJugador1 = 0;
     int golesJugador2 = 0;
 
-    // Ingresar nombres de jugadores
+    // Ingresar nombres de jugadores y porteros
     std::string nombreJugador1, nombrePortero1, nombreJugador2, nombrePortero2;
     std::cout << "Ingrese el nombre del primer jugador: ";
     std::cin >> nombreJugador1;
