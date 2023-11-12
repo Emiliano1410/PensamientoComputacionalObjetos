@@ -1,1 +1,2 @@
-# PensamientoComputacionalObjetos
+## Penalty Shooter 🥅⚽
+Este es un juego simple de tiros de penales en C++. Los usuarios eligen el nombre de sus jugadores y de sus porteros, posteriormente el juego inicia y los usuarios tienen que escoger un lado para disparar (izquierda, centro, derecha), y el resultado es simulado dependiendo de la eficacia de cada jugador y de cada portero (la eficacia puede ser editada en el código a placer por el usuario). Al final el código muestra cuantos penales anotó cada jugador y quien fue el ganador de la tanda de penales.
