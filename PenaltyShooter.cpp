@@ -2,13 +2,13 @@
 #include <cstdlib>
 #include <ctime>
 
-class Jugador {
-private:
+class Participante {
+protected:
     std::string nombre;
     int habilidad;
 
 public:
-    Jugador(std::string nombre, int habilidad) : nombre(nombre), habilidad(habilidad) {}
+    Participante(std::string nombre, int habilidad) : nombre(nombre), habilidad(habilidad) {}
 
     std::string getNombre() const {
         return nombre;
@@ -19,21 +19,14 @@ public:
     }
 };
 
-class Portero {
-private:
-    std::string nombre;
-    int habilidad;
-
+class Jugador : public Participante {
 public:
-    Portero(std::string nombre, int habilidad) : nombre(nombre), habilidad(habilidad) {}
+    Jugador(std::string nombre, int habilidad) : Participante(nombre, habilidad) {}
+};
 
-    std::string getNombre() const {
-        return nombre;
-    }
-
-    int getHabilidad() const {
-        return habilidad;
-    }
+class Portero : public Participante {
+public:
+    Portero(std::string nombre, int habilidad) : Participante(nombre, habilidad) {}
 
     bool atajar() const {
         // La probabilidad de atajar es inversamente proporcional a la habilidad del portero.
@@ -44,12 +37,12 @@ public:
 
 class Partido {
 private:
-    Jugador* equipoLocal;
+    Participante* equipoLocal;
     Portero* porteroVisitante;
     int golesEquipoLocal;
 
 public:
-    Partido(Jugador* equipoLocal, Portero* porteroVisitante)
+    Partido(Participante* equipoLocal, Portero* porteroVisitante)
         : equipoLocal(equipoLocal), porteroVisitante(porteroVisitante), golesEquipoLocal(0) {}
 
     void ejecutarPenal() {
@@ -78,7 +71,6 @@ public:
         return golesEquipoLocal;
     }
 };
-
 
 int main() {
 
