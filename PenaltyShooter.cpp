@@ -8,6 +8,8 @@ protected:
     int habilidad;
 
 public:
+    Participante() : nombre(""), habilidad(0) {}
+
     Participante(std::string nombre, int habilidad) : nombre(nombre), habilidad(habilidad) {}
 
     std::string getNombre() const {
@@ -21,11 +23,15 @@ public:
 
 class Jugador : public Participante {
 public:
+    Jugador() : Participante() {}
+
     Jugador(std::string nombre, int habilidad) : Participante(nombre, habilidad) {}
 };
 
 class Portero : public Participante {
 public:
+    Portero() : Participante() {}
+
     Portero(std::string nombre, int habilidad) : Participante(nombre, habilidad) {}
 
     bool atajar() const {
@@ -42,6 +48,8 @@ private:
     int golesEquipoLocal;
 
 public:
+    Partido() : equipoLocal(nullptr), porteroVisitante(nullptr), golesEquipoLocal(0) {}
+
     Partido(Participante* equipoLocal, Portero* porteroVisitante)
         : equipoLocal(equipoLocal), porteroVisitante(porteroVisitante), golesEquipoLocal(0) {}
 
