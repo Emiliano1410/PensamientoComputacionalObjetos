@@ -19,7 +19,7 @@ public:
 Partido::Partido() : equipoLocal(nullptr), porteroVisitante(nullptr), golesEquipoLocal(0) {}
 
 Partido::Partido(Participante* equipoLocal, Portero* porteroVisitante)
-    : equipoLocal(equipoLocal), porteroVisitante(porteroVisitante),             golesEquipoLocal(0) {}
+    : equipoLocal(equipoLocal), porteroVisitante(porteroVisitante), golesEquipoLocal(0) {}
 
 void Partido::ejecutarPenal() {
     std::string lado;
@@ -33,10 +33,10 @@ void Partido::ejecutarPenal() {
         }
     } while (lado != "izquierda" && lado != "derecha" && lado != "centro");
 
-    std::cout << equipoLocal->getNombre() << " va a tirar hacia " << lado      << ".\n";
+    std::cout << equipoLocal->getNombre() << " va a tirar hacia " << lado << ".\n";
 
     if (porteroVisitante->atajar()) {
-        std::cout << "¡Atajó el portero " << porteroVisitante->getNombre()         << "!\n";
+        std::cout << "¡Atajó el portero " << porteroVisitante->getNombre() << "!\n";
     } else {
         std::cout << "¡Gol para " << equipoLocal->getNombre() << "!\n";
         golesEquipoLocal++;  // Incrementar el contador de goles
