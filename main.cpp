@@ -7,6 +7,7 @@
 
 int main() {
 
+    // Garantizar que la secuencia de números aleatorios generada por std::rand() sea diferente en cada ejecución.
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     // Declarar variables para contar goles
