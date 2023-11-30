@@ -1,6 +1,7 @@
 #pragma once
 #include "Portero.h"
 #include "Jugador.h"
+#include "Participante.h"
 #include <iostream>
 
 // Clase que representa un partido de fútbol con un equipo local, un portero visitante y un marcador de goles.
