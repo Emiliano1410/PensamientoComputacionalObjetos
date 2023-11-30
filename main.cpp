@@ -17,13 +17,13 @@ int main() {
     // Ingresar nombres de jugadores y porteros
     std::string nombreJugador1, nombrePortero1, nombreJugador2, nombrePortero2;
     std::cout << "Ingrese el nombre del primer jugador: ";
-    std::cin >> nombreJugador1;
+    std::getline(std::cin, nombreJugador1);
     std::cout << "Ingrese el nombre del primer portero: ";
-    std::cin >> nombrePortero1;
+    std::getline(std::cin, nombrePortero1);
     std::cout << "Ingrese el nombre del segundo jugador: ";
-    std::cin >> nombreJugador2;
+    std::getline(std::cin, nombreJugador2);
     std::cout << "Ingrese el nombre del segundo portero: ";
-    std::cin >> nombrePortero2;
+    std::getline(std::cin, nombrePortero2);
 
     // Crear jugadores y porteros
     Jugador* jugador1 = new Jugador(nombreJugador1, 90);
