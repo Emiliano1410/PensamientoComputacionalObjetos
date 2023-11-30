@@ -1,5 +1,4 @@
 #pragma once
-#include "Participante.h"
 #include "Portero.h"
 #include "Jugador.h"
 #include <iostream>
@@ -7,14 +6,14 @@
 // Clase que representa un partido de fútbol con un equipo local, un portero visitante y un marcador de goles.
 class Partido {
 private:
-    Participante* equipoLocal; // Puntero al participante que representa al equipo local.
+    Jugador* equipoLocal; // Puntero al jugador que representa al equipo local.
     Portero* porteroVisitante; // Puntero al portero visitante
     int golesEquipoLocal; // Contador de goles del equipo local
 
 public:
     // Constructor por defecto que inicializa los punteros a nullptr y el contador de goles a cero.
     Partido();
-    // Constructor que toma un participante como equipo local, un portero visitante y inicializa el contador de goles a cero.
+    // Constructor que toma los nombres de los jugadores y de los porteros
     Partido(const std::string& nombreJugador, const std::string& nombrePortero);
     // Destructor
     ~Partido();
